@@ -5,7 +5,7 @@ import ast
 
 root=Tk()
 root.title('Login App')
-root.iconbitmap("C:\Dev\Back\LoginApp\img\icon.ico")
+root.iconbitmap("img\icon.ico")
 root.geometry("925x500+300+200")
 root.configure(bg="#fff")
 root.resizable(False,False)
@@ -14,7 +14,7 @@ def signin():
     username=user.get()
     password=code.get()
     
-    file=open('C:\Dev\Back\LoginApp\datasheet.txt','r')
+    file=open('datasheet.txt','r')
     d=file.read()
     r=ast.literal_eval(d)
     file.close()
@@ -22,7 +22,7 @@ def signin():
     if username in r.keys() and password==r[username]:
         screen=Toplevel(root)
         screen.title("Login App")
-        screen.iconbitmap("C:\Dev\Back\LoginApp\img\icon.ico")
+        screen.iconbitmap("img\icon.ico")
         screen.geometry('925x500+300+200')
         screen.config(bg='white')
         
@@ -37,7 +37,7 @@ def signup_command():
     
     window=Toplevel(root)
     window.title("Login App")
-    window.iconbitmap("C:\Dev\Back\LoginApp\img\icon.ico")
+    window.iconbitmap("img\icon.ico")
     window.geometry('925x500+300+200')
     window.configure(bg='#fff')
     window.resizable(False,False)
@@ -49,7 +49,7 @@ def signup_command():
         
         if password==confirmcode:
             try:
-                file=open('C:\Dev\Back\LoginApp\datasheet.txt','r+')
+                file=open('datasheet.txt','r+')
                 d=file.read()
                 r=ast.literal_eval(d)
                 
@@ -58,7 +58,7 @@ def signup_command():
                 file.truncate(0)
                 file.close()
                 
-                file=open('C:\Dev\Back\LoginApp\datasheet.txt','w')
+                file=open('datasheet.txt','w')
                 w=file.write(str(r))
                 
                 messagebox.showinfo('Signup', 'Sucessfully sign up')
@@ -75,7 +75,7 @@ def signup_command():
     def sign():
         window.destroy()
 
-    img = PhotoImage(file="C:\Dev\Back\LoginApp\img\signup.png")
+    img = PhotoImage(file="img\signup.png")
     Label(window,image=img,border=0,bg='white').place(x=50,y=90)
 
     frame=Frame(window,width=350,height=390,bg='#fff')
@@ -142,7 +142,7 @@ def signup_command():
 
     window.mainloop()   
     
-img = PhotoImage(file='C:\Dev\Back\LoginApp\img\login.png')
+img = PhotoImage(file='img\login.png')
 Label(root,image=img,bg='white').place(x=50,y=50)
 
 frame=Frame(root,width=350,height=350,bg="white")
